@@ -1,11 +1,9 @@
 import os
 from fastapi import FastAPI
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
 
 app = FastAPI()
-app.mount("/萌宠形象", StaticFiles(directory="萌宠形象"), name="images")
 
 @app.get("/{full_path:path}")
 def catch_all(full_path: str):
