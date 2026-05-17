@@ -10,7 +10,7 @@ def serve_video():
     return FileResponse("bg-pet.mp4", media_type="video/mp4")
 
 @app.get("/{full_path:path}")
-def catch_all(_full_path: str):
+def catch_all(full_path: str):
     return FileResponse("index.html", media_type="text/html; charset=utf-8")
 
 if __name__ == "__main__":
