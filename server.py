@@ -11,7 +11,7 @@ def serve_video():
 
 @app.get("/{full_path:path}")
 def catch_all(_full_path: str):
-    return FileResponse("index.html")
+    return FileResponse("index.html", media_type="text/html; charset=utf-8")
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
