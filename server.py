@@ -5,9 +5,12 @@ import uvicorn
 
 app = FastAPI()
 
+@app.get("/bg-pet.mp4")
+def serve_video():
+    return FileResponse("bg-pet.mp4", media_type="video/mp4")
+
 @app.get("/{full_path:path}")
-def catch_all(full_path: str):
-    # 所有请求都返回 index.html（所有资源已内联为 base64）
+def catch_all(_full_path: str):
     return FileResponse("index.html")
 
 if __name__ == "__main__":
