@@ -7,6 +7,7 @@ app = FastAPI()
 
 @app.get("/{full_path:path}")
 def catch_all(full_path: str):
+    # 所有请求都返回 index.html（所有资源已内联为 base64）
     return FileResponse("index.html")
 
 if __name__ == "__main__":
